@@ -93,19 +93,19 @@ export const usePets = ({ limit = 10 }: Props): ReturnType => {
 
   const createPet = async (pet: Pet) => {
     const response = await axios.post(BASE_URL, pet);
-    console.log(response);
+    return response?.data;
   };
 
   const updatePet = async (pet: Pet) => {
     const url = `${BASE_URL}/${pet.id}`;
     const response = await axios.put(url, pet);
-    console.log(response);
+    return response?.data;
   };
 
   const deletePet = async (petId: string) => {
     const url = `${BASE_URL}/${petId}`;
     const response = await axios.delete(url);
-    console.log(response);
+    return response?.data;
   };
 
   return {
